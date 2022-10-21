@@ -1,5 +1,7 @@
 import main
 
+import math
+
 import sys, pygame
 pygame.init()
 
@@ -43,7 +45,13 @@ for i in range(8):
 
 while True:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+        if event.type == pygame.QUIT: sys.exit() #end 
+
+        #click on screen
+        if event.type == pygame.MOUSEBUTTONUP: 
+            pos = pygame.mouse.get_pos()
+            pos = math.floor(pos[0]/(width/8)), math.floor(pos[1]/(height/8))
+            print(pos)
 
 
     pygame.display.flip()
