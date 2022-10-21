@@ -1,5 +1,7 @@
 import piece
 
+import pawn
+
 board = []
 for i in range(8):
     board.append([None,None,None,None,None,None,None,None]) 
@@ -11,4 +13,4 @@ for i in range(8):
     board[7][i] = piece.Piece(i, 0, "white", boardSetUp[i])
     board[6][i] = piece.Piece(i, 0, "white", "pawn")
 
-print(board)
+print(pawn.PawnMoves(1, 1, "black", board))

@@ -27,7 +27,10 @@ font = pygame.font.SysFont('freesanbold.ttf', 30)
 for i in range(8):
     for j in range(8): 
         if main.board[i][j] != None: 
-            text = font.render(main.board[i][j].type, True, white, black)
+            if main.board[i][j].color == white: 
+                text = font.render(main.board[i][j].type, True, main.board[i][j].color, black)
+            else: 
+                text = font.render(main.board[i][j].type, True, main.board[i][j].color, white)
             textRect = text.get_rect()
             textRect.center = (j*(width/8)+(width/16) , i*(height/8)+(height/16))
             screen.blit(text, textRect)
