@@ -1,7 +1,5 @@
 import piece
 
-import pawn
-
 #create board
 board = []
 for i in range(8):

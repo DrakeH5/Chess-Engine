@@ -4,6 +4,10 @@ import main
 import pawn
 pawnMoves = pawn.PawnMoves
 
+import bishop
+bishopMoves = bishop.BishopMoves
+
+
 import math
 
 import sys, pygame
@@ -59,8 +63,8 @@ while True:
             pos = pygame.mouse.get_pos()
             pos = math.floor(pos[0]/(width/8)), math.floor(pos[1]/(height/8))
             if selected != None and possibleMoves != None: 
-                print(possibleMoves)
-                if [pos[0], pos[1]] in possibleMoves: selected.x = pos[0]
+                if [pos[0], pos[1]] in possibleMoves: 
+                    print(possibleMoves)
                     main.board[selected.y][selected.x] = None
                     selected.x = pos[0]
                     selected.y = pos[1]
