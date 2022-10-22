@@ -16,6 +16,9 @@ knightMoves = knight.KnightMoves
 import queen
 queenMoves = queen.QueenMoves
 
+import king
+kingMoves = king.KingMoves
+
 
 import math
 
