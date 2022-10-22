@@ -1,4 +1,8 @@
+from select import select
 import main
+
+import pawn
+pawnMoves = pawn.PawnMoves
 
 import math
 
@@ -51,7 +55,10 @@ while True:
         if event.type == pygame.MOUSEBUTTONUP: 
             pos = pygame.mouse.get_pos()
             pos = math.floor(pos[0]/(width/8)), math.floor(pos[1]/(height/8))
-            print(pos)
+            selected = main.board[pos[1]][pos[0]]
+            if selected != None:
+                getMoves = eval(selected.type + "Moves")
+                print(getMoves(pos[0], pos[1], selected.color, main.board))
 
 
     pygame.display.flip()

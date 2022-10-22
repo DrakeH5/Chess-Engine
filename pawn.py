@@ -11,12 +11,12 @@ def PawnMoves(x, y, color, board):
         if board[y+(direction*2)][x] == None:
             possibleMoves.append([y+(direction*2), x])
 
-    if  board[y+direction][x+1] != None and board[y+direction][x+1].color != color:  
+    if  x<7 and board[y+direction][x+1] != None and board[y+direction][x+1].color != color:  
         possibleMoves.append([y+direction, x+1])
 
-    if board[y+direction][x-1] != None and board[y+direction][x-1].color != color:  
+    if x>0 and board[y+direction][x-1] != None and board[y+direction][x-1].color != color:  
         possibleMoves.append([y+direction, x-1])
-        
+
     if board[y+direction][x] == None: 
         possibleMoves.append([y+direction, x])
 

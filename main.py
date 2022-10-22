@@ -15,4 +15,3 @@ for i in range(8):
     board[7][i] = piece.Piece(i, 0, "white", boardSetUp[i])
     board[6][i] = piece.Piece(i, 0, "white", "pawn")
 
-print(pawn.PawnMoves(1, 1, "black", board))
