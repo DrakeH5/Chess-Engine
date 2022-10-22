@@ -11,7 +11,7 @@ for i in range(8):
 boardSetUp = ["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]
 for i in range(8): 
     board[0][i] = piece.Piece(i, 0, "black", boardSetUp[i])
-    board[1][i] = piece.Piece(i, 0, "black", "pawn")
-    board[7][i] = piece.Piece(i, 0, "white", boardSetUp[i])
-    board[6][i] = piece.Piece(i, 0, "white", "pawn")
+    board[1][i] = piece.Piece(i, 1, "black", "pawn")
+    board[7][i] = piece.Piece(i, 7, "white", boardSetUp[i])
+    board[6][i] = piece.Piece(i, 6, "white", "pawn")
 
