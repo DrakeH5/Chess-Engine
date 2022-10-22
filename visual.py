@@ -10,6 +10,9 @@ bishopMoves = bishop.BishopMoves
 import rook
 rookMoves = rook.RookMoves
 
+import knight
+knightMoves = knight.KnightMoves
+
 
 import math
 
