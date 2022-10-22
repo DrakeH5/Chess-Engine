@@ -59,8 +59,11 @@ while True:
             pos = pygame.mouse.get_pos()
             pos = math.floor(pos[0]/(width/8)), math.floor(pos[1]/(height/8))
             if selected != None and possibleMoves != None: 
-                if [pos[0], pos[1]] in possibleMoves: 
+                print(possibleMoves)
+                if [pos[0], pos[1]] in possibleMoves: selected.x = pos[0]
                     main.board[selected.y][selected.x] = None
+                    selected.x = pos[0]
+                    selected.y = pos[1]
                     main.board[pos[1]][pos[0]] = selected
                     DrawBoardAndPieces()
                 selected = None
