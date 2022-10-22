@@ -66,6 +66,9 @@ DrawBoardAndPieces()
 selected = None
 possibleMoves = None
 
+teams=["white", "black"]
+turn=0
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit() #end 
@@ -82,11 +85,12 @@ while True:
                     selected.y = pos[1]
                     main.board[pos[1]][pos[0]] = selected
                     DrawBoardAndPieces()
+                    turn = abs(turn-1)
                 selected = None
                 possibleMoves = None    
             else: 
                 selected = main.board[pos[1]][pos[0]]
-                if selected != None:
+                if selected != None and selected.color == teams[turn]:
                     getMoves = eval(selected.type + "Moves")
                     possibleMoves = getMoves(selected.x, selected.y, selected.color, main.board)
 
