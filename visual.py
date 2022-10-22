@@ -7,6 +7,9 @@ pawnMoves = pawn.PawnMoves
 import bishop
 bishopMoves = bishop.BishopMoves
 
+import rook
+rookMoves = rook.RookMoves
+
 
 import math
 
