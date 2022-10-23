@@ -36,6 +36,8 @@ size = width, height = 500, 500
 white = 200, 200, 200
 black = 0, 0, 0
 
+green = 0, 200, 0
+
 screen = pygame.display.set_mode(size)
 
 
@@ -107,6 +109,10 @@ while True:
             else: 
                 selected = main.board[pos[1]][pos[0]]
                 if selected != None and selected.color == teams[turn]:
+                    highlightSurface = pygame.Surface((width/8, height/8)) 
+                    highlightSurface.set_alpha(128)             
+                    highlightSurface.fill(green)           
+                    screen.blit(highlightSurface, (selected.x*(width/8), selected.y*(height/8)))
                     getMoves = eval(selected.type + "Moves")
                     possibleMoves = getMoves(selected.x, selected.y, selected.color, main.board)
 
