@@ -37,6 +37,7 @@ white = 200, 200, 200
 black = 0, 0, 0
 
 green = 0, 200, 0
+red = 220,20,60
 
 screen = pygame.display.set_mode(size)
 
@@ -111,7 +112,7 @@ while True:
                                         main.board[abs((turn-1)*7)][int(((OldSelected.x*4)/7)+2)] = main.board[abs((turn-1)*7)][4]
                                         main.board[abs((turn-1)*7)][4] = None
                     turn = abs(turn-1)
-                    DrawBoardAndPieces()
+                DrawBoardAndPieces()
                 selected = None
                 possibleMoves = None    
             else: 
@@ -123,6 +124,11 @@ while True:
                     screen.blit(highlightSurface, (selected.x*(width/8), selected.y*(height/8)))
                     getMoves = eval(selected.type + "Moves")
                     possibleMoves = getMoves(selected.x, selected.y, selected.color, main.board)
+                    for i in range(len(possibleMoves)): 
+                        highlightSurface = pygame.Surface((width/8, height/8)) 
+                        highlightSurface.set_alpha(100)             
+                        highlightSurface.fill(red)           
+                        screen.blit(highlightSurface, (possibleMoves[i][0]*(width/8), possibleMoves[i][1]*(height/8)))
 
 
     pygame.display.flip()
