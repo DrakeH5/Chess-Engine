@@ -102,6 +102,14 @@ while True:
                         main.board[OldSelected.y][OldSelected.x] = selected
                         main.board[pos[1]][pos[0]] = OldSpace
                         turn = abs(turn-1)
+                    elif OldSelected.type == "rook" and OldSelected.y == abs((turn-1)*7): #castleing 
+                            if OldSelected.x == 0 or OldSelected.x == 7: 
+                                if selected.x == (OldSelected.x/3.5)+3 and selected.y == OldSelected.y: 
+                                    if main.board[abs((turn-1)*7)][4] != None and main.board[abs((turn-1)*7)][4].type == "king": 
+                                        main.board[abs((turn-1)*7)][4].x = abs(OldSelected.x-1)
+                                        main.board[abs((turn-1)*7)][4].y = (turn-1)*7 
+                                        main.board[abs((turn-1)*7)][int(((OldSelected.x*4)/7)+2)] = main.board[abs((turn-1)*7)][4]
+                                        main.board[abs((turn-1)*7)][4] = None
                     turn = abs(turn-1)
                     DrawBoardAndPieces()
                 selected = None
