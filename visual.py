@@ -1,4 +1,5 @@
 from select import select
+from turtle import clone
 import main
 
 import pawn
@@ -19,8 +20,12 @@ queenMoves = queen.QueenMoves
 import king
 kingMoves = king.KingMoves
 
+import allPossibleMoves
+findAllMoves = allPossibleMoves.findAllMoves
 
 import math
+
+import copy
 
 import sys, pygame
 pygame.init()
@@ -78,14 +83,25 @@ while True:
             pos = pygame.mouse.get_pos()
             pos = math.floor(pos[0]/(width/8)), math.floor(pos[1]/(height/8))
             if selected != None and possibleMoves != None: 
-                if [pos[0], pos[1]] in possibleMoves: 
-                    print(possibleMoves)
+                if [pos[0], pos[1]] in possibleMoves:
                     main.board[selected.y][selected.x] = None
+                    OldSelected = copy.copy(selected)
                     selected.x = pos[0]
                     selected.y = pos[1]
+                    OldSpace = copy.copy(main.board[pos[1]][pos[0]])
                     main.board[pos[1]][pos[0]] = selected
-                    DrawBoardAndPieces()
+                    for i in range(8): 
+                        for j in range(8):
+                            if main.board[i][j] != None and main.board[i][j].type == "king" and main.board[i][j].color == teams[turn]: 
+                                king = [main.board[i][j].x, main.board[i][j].y]
+                    if king in findAllMoves(main.board, teams[abs(turn-1)]):
+                        selected.x = OldSelected.x
+                        selected.y = OldSelected.y
+                        main.board[OldSelected.y][OldSelected.x] = selected
+                        main.board[pos[1]][pos[0]] = OldSpace
+                        turn = abs(turn-1)
                     turn = abs(turn-1)
+                    DrawBoardAndPieces()
                 selected = None
                 possibleMoves = None    
             else: 

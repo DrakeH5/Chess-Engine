@@ -8,6 +8,7 @@ def BishopMoves(x, y, color, board):
                 possibleMoves.append([x+i, y+i])
             elif board[y+i][x+i].color != color: 
                 possibleMoves.append([x+i, y+i])
+                i = 8
             else: 
                 i = 8
         i+=1
@@ -18,6 +19,7 @@ def BishopMoves(x, y, color, board):
                 possibleMoves.append([x+i, y-i])
             elif board[y-i][x+i].color != color: 
                 possibleMoves.append([x+i, y-i])
+                i = 8
             else: 
                 i = 8
         i+=1
@@ -28,6 +30,7 @@ def BishopMoves(x, y, color, board):
                 possibleMoves.append([x-i, y+i])
             elif board[y+i][x-i].color != color: 
                 possibleMoves.append([x-i, y+i])
+                i = 8
             else: 
                 i = 8
         i+=1
@@ -38,6 +41,7 @@ def BishopMoves(x, y, color, board):
                 possibleMoves.append([x-i, y-i])
             elif board[y-i][x-i].color != color: 
                 possibleMoves.append([x-i, y-i])
+                i = 8
             else: 
                 i = 8
         i+=1
